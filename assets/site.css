@@ -1,0 +1,105 @@
+/* Mountain Retro: shared styles for the landing page and /thank-you
+   Colors and type come from the Mountain Retro design system (tokens.json). */
+
+@font-face { font-family: "Jost"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/jost-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jost"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/jost-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Jost"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/jost-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jost"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/jost-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jost"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/jost-latin-800-normal.woff2") format("woff2"); }
+
+:root {
+  --navy: #1f2a44;
+  --cream: #f3ead8;
+  --orange: #d26930;        /* on cream */
+  --gold: #e7b03e;          /* on cream: never text */
+  --orange-on-navy: #e2773b;
+  --gold-on-navy: #f2bf4e;
+  --sock-red: #b8372e;      /* accent only */
+  --trail-green: #5f8a5a;   /* accent only */
+  --font-sans: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --wrap: 1240px;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+figure { margin: 0; }
+p { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.skip { position: absolute; left: -9999px; top: 0; }
+.skip:focus { left: 16px; top: 16px; z-index: 10; background: var(--navy); color: var(--cream); padding: 10px 14px; }
+
+/* ---------- Top strip + masthead ---------- */
+.strip { background: var(--navy); color: var(--cream); }
+.strip .wrap { display: flex; justify-content: space-between; gap: 16px; padding-top: 9px; padding-bottom: 9px; }
+.strip .label { font-size: 11px; }
+.strip .gold { color: var(--gold-on-navy); }
+
+.masthead { border-bottom: 2px solid var(--navy); }
+.masthead .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 22px; padding-bottom: 22px; }
+.masthead .logo img { width: clamp(170px, 20vw, 236px); }
+.masthead-meta { display: flex; align-items: center; gap: 28px; }
+.masthead-meta .label { text-align: right; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 52px;
+  padding: 14px 26px;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 17px; font-weight: 700; letter-spacing: .02em;
+  text-decoration: none;
+  border: 2px solid var(--navy);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--orange);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0 var(--orange); }
+.btn:active { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--orange); }
+.btn-sm { min-height: 44px; padding: 10px 16px; font-size: 15px; box-shadow: 4px 4px 0 var(--orange); }
+.btn-sm:hover { box-shadow: 2px 2px 0 var(--orange); }
+.btn .arrow { font-weight: 400; }
+
+/* ---------- The stripe (from the mark and the sock cuff) ---------- */
+.stripe { display: grid; grid-template-rows: 14px 6px 34px; }
+.stripe span:nth-child(1) { background: var(--gold); }
+.stripe span:nth-child(2) { background: transparent; }
+.stripe span:nth-child(3) { background: var(--orange); }
+
+/* ---------- Footer ---------- */
+.foot { background: var(--navy); color: var(--cream); }
+.foot .wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; padding-top: 44px; padding-bottom: 44px; }
+.foot img { width: 180px; }
+.foot .tag { color: var(--gold-on-navy); }
+.foot small { font-size: 13px; opacity: .85; text-align: right; }
+@media (max-width: 720px) {
+  .foot .wrap { grid-template-columns: 1fr; gap: 18px; }
+  .foot small { text-align: left; }
+}
