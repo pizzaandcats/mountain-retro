@@ -15,15 +15,16 @@
 <style>
 /* ---------- Hero: the print ad ---------- */
 .ad-band { position: relative; background: var(--cream); overflow-x: clip; }
-@media (min-width: 1441px) { .ad-stripes { margin-right: calc(-1 * (56px + (100vw - 1440px) / 2)) !important; } }
 .ad-band::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: calc((100% - min(100%, 1440px)) / 2 + min(100%, 1440px) * 6 / 11); background: var(--navy); }
 .ad { position: relative; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); min-height: 820px; }
 .ad-main { margin: auto 0; padding: clamp(28px, 2.6vw, 36px) 0 4px; }
 .ad-logo-mobile { display: none; }
 
-.ad-photo { background: var(--navy); padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 40px) 24px; display: flex; flex-direction: column; }
-.ad-photo .inner { position: relative; border: 2px solid var(--cream); flex: 1; min-height: 0; }
-.ad-photo img { position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: calc(100% - 20px); object-fit: cover; object-position: 50% 42%; }
+.ad-photo { background: var(--navy); padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 40px) 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; container-type: size; }
+/* the plate keeps the photo's own proportions, so his head and feet are never cropped */
+.ad-photo .plate { width: min(100%, calc((100cqh - 42px - 24px) * 0.7467 + 24px)); }
+.ad-photo .inner { border: 2px solid var(--cream); padding: 10px; }
+.ad-photo img { width: 100%; height: auto; aspect-ratio: 1400 / 1875; }
 .ad-photo figcaption { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--cream); padding-top: 14px; }
 .ad-photo figcaption .label { font-size: 11px; }
 .ad-photo figcaption .g { color: var(--gold-on-navy); }
@@ -33,7 +34,7 @@
 .ad-text .top img { width: clamp(170px, 15vw, 210px); }
 .ad-text .top .label { text-align: right; }
 .ad-text h1 { margin: 0; font-size: clamp(58px, 6.6vw, 96px); line-height: .86; font-weight: 700; letter-spacing: -.035em; }
-.ad-stripes { margin: clamp(24px, 2.2vw, 32px) calc(-1 * clamp(32px, 3.8vw, 56px)) clamp(22px, 2vw, 28px) 0; display: grid; grid-template-rows: 12px 5px 30px; }
+.ad-stripes { margin: clamp(24px, 2.2vw, 32px) 0 clamp(22px, 2vw, 28px) 0; display: grid; grid-template-rows: 12px 5px 30px; }
 .ad-stripes span:nth-child(1) { background: var(--gold); }
 .ad-stripes span:nth-child(3) { background: var(--orange); }
 .ad-body { font-size: clamp(18px, 1.3vw, 19px); line-height: 1.5; max-width: 34em; }
@@ -150,12 +151,13 @@
 @media (max-width: 900px) {
   .ad { grid-template-columns: 1fr; min-height: 0; }
   .ad-band::before { display: none; }
-  .ad-photo .inner { padding: 10px; }
+  .ad-photo { container-type: normal; }
+  .ad-photo .plate { width: 100%; }
   .ad-logo-mobile { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px var(--gutter); border-bottom: 2px solid var(--navy); }
   .ad-logo-mobile img { width: 140px; }
   .ad-logo-mobile .btn { width: auto; padding: 10px 14px; font-size: 14px; }
   .ad-photo { padding: 16px 16px 14px; }
-  .ad-photo img { position: static; width: 100%; aspect-ratio: 4 / 5; height: auto; object-position: 50% 50%; }
+  .ad-photo img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 50%; }
   .ad-main { padding: 0; }
   .ad-text { padding: 32px var(--gutter) 48px; }
   .ad-stripes { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); }
@@ -187,6 +189,7 @@
   <div class="ad-band">
   <section class="ad" aria-labelledby="hero-title">
     <figure class="ad-photo">
+      <div class="plate">
       <div class="inner">
         <img src="assets/img/mountain-retro-porch-1400.jpg"
              srcset="assets/img/mountain-retro-porch-900.jpg 900w, assets/img/mountain-retro-porch-1400.jpg 1400w"
@@ -198,6 +201,7 @@
         <span class="label">Plate 01</span>
         <span class="label g">The Heritage Trail Sock</span>
       </figcaption>
+      </div>
     </figure>
 
     <div class="ad-text">
