@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mountain Retro | Rugged never goes out of style.</title>
+<meta name="description" content="Everyday outdoor style inspired by the 70s, 80s, and 90s. Starting with the Heritage Trail Sock. Join the drop list to shop our first release before the public.">
+<meta property="og:title" content="Mountain Retro | Rugged never goes out of style.">
+<meta property="og:description" content="Everyday outdoor style from the days when adventure led the way. Join the drop list for first dibs on the Heritage Trail Sock.">
+<meta property="og:image" content="https://mountainretro.com/assets/img/mountain-retro-porch-1400.jpg">
+<meta name="theme-color" content="#1f2a44">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preload" href="assets/fonts/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* ---------- Hero: the print ad ---------- */
+.ad { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+.ad-main { margin: auto 0; padding: clamp(28px, 2.6vw, 36px) 0 4px; }
+.ad-logo-mobile { display: none; }
+
+.ad-photo { background: var(--navy); padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 40px) 24px; display: flex; flex-direction: column; }
+.ad-photo .inner { border: 2px solid var(--cream); padding: 10px; flex: 1; display: flex; min-height: 0; }
+.ad-photo img { width: 100%; height: 100%; min-height: 640px; object-fit: cover; object-position: 50% 62%; }
+.ad-photo figcaption { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--cream); padding-top: 14px; }
+.ad-photo figcaption .label { font-size: 11px; }
+.ad-photo figcaption .g { color: var(--gold-on-navy); }
+
+.ad-text { padding: clamp(28px, 2.8vw, 40px) clamp(32px, 3.8vw, 56px); display: flex; flex-direction: column; min-width: 0; }
+.ad-text .top { display: flex; justify-content: space-between; align-items: end; gap: 16px; border-bottom: 1px solid var(--navy); padding-bottom: 14px; margin: 0; }
+.ad-text .top img { width: clamp(170px, 15vw, 210px); }
+.ad-text .top .label { text-align: right; }
+.ad-text h1 { margin: 0; font-size: clamp(58px, 6.6vw, 96px); line-height: .86; font-weight: 700; letter-spacing: -.035em; }
+.ad-stripes { margin: clamp(24px, 2.2vw, 32px) calc(-1 * clamp(32px, 3.8vw, 56px)) clamp(22px, 2vw, 28px) 0; display: grid; grid-template-rows: 12px 5px 30px; }
+.ad-stripes span:nth-child(1) { background: var(--gold); }
+.ad-stripes span:nth-child(3) { background: var(--orange); }
+.ad-body { font-size: clamp(18px, 1.3vw, 19px); line-height: 1.5; max-width: 34em; }
+.ad-body p { margin: 0 0 14px; }
+.ad-body p:last-child { margin-bottom: 0; }
+.ad-body .lead { font-weight: 500; }
+
+/* the call to action: big, first thing after the copy */
+.ad-cta { margin-top: clamp(24px, 2.2vw, 30px); border-top: 3px solid var(--navy); padding-top: 22px; display: grid; grid-template-columns: auto 1fr; gap: 16px 24px; align-items: center; }
+.ad-cta .label { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin: 0; }
+.ad-cta .label::before { content: ""; width: 28px; height: 10px; background: var(--sock-red); flex: none; }
+.btn-lg { min-height: 66px; padding: 18px 32px; font-size: 20px; box-shadow: 7px 7px 0 var(--orange); }
+.btn-lg:hover { box-shadow: 4px 4px 0 var(--orange); transform: translate(3px, 3px); }
+.ad-cta .fine { margin: 0; font-size: 17px; line-height: 1.4; max-width: 250px; }
+
+
+/* catalog strip between sections */
+.catstrip { height: 10px; border-top: 3px solid var(--navy); border-bottom: 1px solid var(--navy); }
+
+/* ---------- Product + specs (navy) ---------- */
+.navy { background: var(--navy); color: var(--cream); }
+.product .wrap { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+.features { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
+.features figure { margin: 0; }
+.features img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.features figcaption { display: flex; gap: 10px; align-items: baseline; padding-top: 12px; font-size: 16px; line-height: 1.4; }
+.features figcaption b { color: var(--gold-on-navy); font-size: 14px; letter-spacing: .1em; }
+.features-note { margin: 18px 0 clamp(48px, 6vw, 72px); font-size: 14px; border-top: 1px solid rgba(243, 234, 216, .35); padding-top: 12px; }
+.item { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+.item .specs { margin-top: 8px; }
+.item .num { font-size: 64px; font-weight: 700; line-height: 1; color: var(--orange-on-navy); margin: 0 0 6px; letter-spacing: -.02em; }
+.item h2 { margin: 0 0 18px; font-size: clamp(34px, 3.6vw, 48px); line-height: 1; font-weight: 700; }
+.item p { margin: 0 0 16px; font-size: 19px; line-height: 1.5; }
+.specs { margin: 28px 0 0; padding: 0; list-style: none; border-top: 2px solid var(--cream); }
+.specs li { display: flex; align-items: baseline; gap: 10px; padding: 12px 0; border-bottom: 1px solid rgba(243, 234, 216, .35); font-size: 17px; }
+.specs .k { font-weight: 500; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; color: var(--gold-on-navy); white-space: nowrap; }
+.specs .dots { flex: 1; border-bottom: 2px dotted rgba(243, 234, 216, .45); transform: translateY(-4px); min-width: 16px; }
+.specs .v { text-align: right; }
+.item .btn-inv { margin-top: 28px; background: var(--orange-on-navy); color: var(--navy); border-color: var(--orange-on-navy); box-shadow: 6px 6px 0 var(--gold-on-navy); }
+.item .btn-inv:hover { box-shadow: 4px 4px 0 var(--gold-on-navy); }
+
+.next { margin: clamp(48px, 6vw, 72px) 0 0; border-top: 1px solid rgba(243, 234, 216, .35); padding-top: 18px; font-size: 18px; font-style: italic; }
+
+/* ---------- Signup coupon ---------- */
+.signup .wrap { padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
+.coupon { position: relative; border: 3px dashed var(--navy); padding: 10px; }
+.coupon-inner { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); background: var(--cream); border: 2px solid var(--navy); }
+.coupon .pitch { padding: clamp(28px, 4vw, 56px); border-right: 2px solid var(--navy); }
+.coupon .pitch .label { margin: 0 0 18px; }
+.coupon h2 { margin: 0 0 16px; font-size: clamp(40px, 5vw, 68px); line-height: .95; font-weight: 700; letter-spacing: -.02em; }
+.coupon .pitch > p { margin: 0 0 24px; font-size: 20px; line-height: 1.45; max-width: 470px; }
+.perks { margin: 0; padding: 0; list-style: none; }
+.perks li { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: center; padding: 12px 0; border-top: 1px solid rgba(31, 42, 68, .25); font-size: 18px; line-height: 1.4; }
+.perks li:last-child { border-bottom: 1px solid rgba(31, 42, 68, .25); }
+.perks .tick { width: 28px; height: 12px; display: grid; grid-template-rows: 4px 2px 6px; }
+.perks .tick i:nth-child(1) { background: var(--gold); }
+.perks .tick i:nth-child(3) { background: var(--orange); }
+.coupon .form-side { background: var(--navy); color: var(--cream); padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.coupon .form-side h3 { margin: 0; font-size: 28px; line-height: 1.1; font-weight: 700; }
+.coupon .form-side .small { font-size: 15px; margin: 0; }
+.coupon .form-side { scroll-margin-top: 24px; }
+.form-label { margin: 0 0 -6px; color: var(--gold-on-navy); }
+.scissors { position: absolute; top: -15px; left: 36px; background: var(--cream); padding: 0 8px; line-height: 0; }
+
+/* Kit embed: restyle the injected form to match the brand (Kit inline forms use these classes) */
+#kit-form { min-height: 120px; }
+#kit-form .formkit-form { max-width: none !important; background: transparent !important; border: 0 !important; box-shadow: none !important; font-family: var(--font-sans) !important; }
+#kit-form .formkit-form [data-style="clean"], #kit-form .formkit-form [data-style="minimal"] { padding: 0 !important; }
+#kit-form .formkit-form .formkit-header, #kit-form .formkit-form .formkit-subheader, #kit-form .formkit-form .formkit-image, #kit-form .formkit-form .formkit-background { display: none !important; }
+#kit-form .formkit-fields { margin: 0 !important; display: flex !important; flex-direction: column !important; gap: 12px !important; }
+#kit-form .formkit-field, #kit-form .formkit-submit { margin: 0 !important; flex: none !important; width: 100% !important; }
+#kit-form .formkit-input {
+  width: 100% !important; min-height: 54px !important;
+  background: var(--cream) !important; color: var(--navy) !important;
+  border: 2px solid var(--cream) !important; border-radius: 0 !important;
+  font-family: var(--font-sans) !important; font-size: 17px !important; padding: 12px 16px !important;
+}
+#kit-form .formkit-input::placeholder { color: rgba(31, 42, 68, .72) !important; }
+#kit-form .formkit-input:focus { outline: 3px solid var(--gold-on-navy) !important; outline-offset: 2px !important; }
+#kit-form .formkit-submit {
+  min-height: 54px !important; border-radius: 0 !important;
+  background: var(--orange-on-navy) !important; color: var(--navy) !important;
+  font-family: var(--font-sans) !important; font-weight: 700 !important; font-size: 18px !important; letter-spacing: .02em !important;
+  box-shadow: 6px 6px 0 var(--gold-on-navy) !important;
+}
+#kit-form .formkit-submit { border: 0 !important; }
+#kit-form .formkit-submit > span { padding: 14px 20px !important; }
+#kit-form .formkit-submit:hover > span { background: transparent !important; }
+#kit-form .formkit-powered-by-convertkit-container { margin: 16px 0 0 !important; justify-content: flex-start !important; }
+#kit-form .formkit-powered-by-convertkit { color: var(--cream) !important; opacity: .7 !important; font-family: var(--font-sans) !important; font-size: 11px !important; font-weight: 400 !important; letter-spacing: .08em !important; padding: 0 !important; margin: 0 !important; background-color: transparent !important; text-decoration: none !important; transform: none !important; }
+#kit-form .formkit-powered-by-convertkit:hover, #kit-form .formkit-powered-by-convertkit:focus-visible { opacity: 1 !important; }
+#kit-form .formkit-alert-success { background: var(--cream) !important; color: var(--navy) !important; border: 0 !important; font-size: 17px !important; font-weight: 500 !important; padding: 14px 16px !important; }
+#kit-form .formkit-alert-error { background: var(--cream) !important; color: var(--sock-red) !important; border: 0 !important; font-size: 15px !important; }
+#kit-form .formkit-alert:empty { display: none !important; }
+#kit-form .formkit-alert { border-radius: 0 !important; font-family: var(--font-sans) !important; }
+#kit-form .formkit-guarantee { color: var(--cream) !important; font-size: 13px !important; }
+.kit-fallback { display: none; font-size: 15px; }
+.kit-fallback.show { display: block; }
+.kit-fallback a { color: var(--gold-on-navy); font-weight: 700; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 901px) and (max-height: 860px) {
+  .ad-text h1 { font-size: clamp(54px, 5.6vw, 80px); }
+  .ad-main { padding-top: 18px; }
+  .ad-stripes { margin-top: 20px; margin-bottom: 18px; }
+  .ad-body p { margin-bottom: 10px; }
+  .ad-cta { margin-top: 20px; padding-top: 16px; gap: 12px 24px; }
+}
+@media (max-width: 1100px) {
+  .ad-body { grid-template-columns: 1fr; gap: 14px; }
+  .ad-cta { grid-template-columns: 1fr; }
+  .ad-cta .fine { max-width: none; }
+}
+@media (max-width: 900px) {
+  .ad { grid-template-columns: 1fr; min-height: 0; }
+  .ad-logo-mobile { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px var(--gutter); border-bottom: 2px solid var(--navy); }
+  .ad-logo-mobile img { width: 140px; }
+  .ad-logo-mobile .btn { width: auto; padding: 10px 14px; font-size: 14px; }
+  .ad-photo { padding: 16px 16px 14px; }
+  .ad-photo img { aspect-ratio: 4 / 5; height: auto; min-height: 0; object-position: 50% 50%; }
+  .ad-main { padding: 0; }
+  .ad-text { padding: 32px var(--gutter) 48px; }
+  .ad-stripes { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); }
+  .ad-text .top { display: none; }
+  .ad-text h1 { margin-top: 0; }
+  .item { grid-template-columns: 1fr; }
+  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+  .coupon-inner { grid-template-columns: 1fr; }
+  .coupon .pitch { border-right: 0; border-bottom: 2px solid var(--navy); }
+}
+@media (max-width: 560px) {
+  .ad-cta { grid-template-columns: 1fr; }
+  .ad-cta .fine { max-width: none; }
+  .btn { width: 100%; }
+  .coupon { padding: 6px; }
+  .specs li { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#join">Skip to the drop list signup</a>
+
+<main>
+  <div class="ad-logo-mobile">
+    <img src="assets/img/mountain-retro-lockup-light-transparent.svg" alt="Mountain Retro" width="168" height="39">
+    <a class="btn btn-sm" href="#join">Join the drop list</a>
+  </div>
+
+  <section class="ad" aria-labelledby="hero-title">
+    <figure class="ad-photo">
+      <div class="inner">
+        <img src="assets/img/mountain-retro-porch-1400.jpg"
+             srcset="assets/img/mountain-retro-porch-900.jpg 900w, assets/img/mountain-retro-porch-1400.jpg 1400w"
+             sizes="(max-width: 900px) 100vw, 55vw"
+             width="1400" height="1875"
+             alt="A man with curly hair sits on weathered cabin steps among pines, holding an enamel camp mug. He wears a cream ringer tee, green shorts, and tall gray socks with a red stripe under brown sandals.">
+      </div>
+      <figcaption>
+        <span class="label">Plate 01</span>
+        <span class="label g">The Heritage Trail Sock</span>
+      </figcaption>
+    </figure>
+
+    <div class="ad-text">
+      <div class="top">
+        <img src="assets/img/mountain-retro-lockup-light-transparent.svg" alt="Mountain Retro" width="200" height="47">
+        <span class="label">Los Angeles, Calif.</span>
+      </div>
+      <div class="ad-main">
+      <h1 id="hero-title">Rugged never goes out of style.</h1>
+      <div class="ad-stripes" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="ad-body">
+        <p class="lead">There was a time when jeans were hiking pants, packs weighed 75 pounds, and a map, compass, and a little curiosity were all you needed.</p>
+        <p>We're bringing that spirit back. Everyday outdoor style inspired by the 70s, 80s, and 90s. Starting with the Heritage Trail Sock.</p>
+      </div>
+      <div class="ad-cta">
+        <p class="label">First Dibs on the Trail</p>
+        <a class="btn btn-lg" href="#join">Join the drop list <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <p class="fine">Join the drop list to shop our first release before the public.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="catstrip" aria-hidden="true"></div>
+
+  <section class="navy product" aria-labelledby="item-title">
+    <div class="wrap">
+      <ul class="features">
+        <li><figure><img src="assets/img/feature-cuff.jpg" width="600" height="750" loading="lazy" alt="Close-up of a cream ribbed sock cuff with one red stripe."><figcaption><b>A</b> Cream ribbed cuff, one red stripe</figcaption></figure></li>
+        <li><figure><img src="assets/img/feature-leg.jpg" width="480" height="600" loading="lazy" alt="Close-up of a marled gray sock leg with a chunky rib."><figcaption><b>B</b> Marled gray leg, the old ragg look</figcaption></figure></li>
+        <li><figure><img src="assets/img/feature-heel.jpg" width="800" height="1000" loading="lazy" alt="Close-up of a cream sock toe in a brown two-strap sandal on a wooden step."><figcaption><b>C</b> Contrasting cream heel and toe</figcaption></figure></li>
+        <li><figure><img src="assets/img/feature-worn.jpg" width="800" height="1000" loading="lazy" alt="A man on cabin steps in a ringer tee and green shorts, wearing the striped socks with sandals."><figcaption><b>D</b> Crew height. Boots or sandals</figcaption></figure></li>
+      </ul>
+      <p class="features-note">Close-ups from Plate 01.</p>
+
+      <article class="item">
+        <div>
+          <p class="num" aria-hidden="true">01</p>
+          <h2 id="item-title">The Heritage Trail Sock</h2>
+          <p>Our first release. A crew-height trail sock in the old ragg style. Marled gray leg, cream ribbed cuff, one red stripe, and a contrasting cream heel and toe. Good on the trail, good at the coffee shop.</p>
+          <p>We're developing it now. The drop list hears first when it's ready.</p>
+        </div>
+        <div>
+          <ul class="specs">
+            <li><span class="k">Item</span><span class="dots" aria-hidden="true"></span><span class="v">Heritage Trail Sock</span></li>
+            <li><span class="k">Style</span><span class="dots" aria-hidden="true"></span><span class="v">Crew, red stripe</span></li>
+            <li><span class="k">Status</span><span class="dots" aria-hidden="true"></span><span class="v">In development</span></li>
+            <li><span class="k">Price</span><span class="dots" aria-hidden="true"></span><span class="v">To be announced</span></li>
+            <li><span class="k">Release</span><span class="dots" aria-hidden="true"></span><span class="v">Drop list shops first</span></li>
+          </ul>
+          <a class="btn btn-inv" href="#join">Join the drop list <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+      <p class="next">First up: The Heritage Trail Sock. More classics are on the drawing board.</p>
+    </div>
+  </section>
+
+  <section class="signup" id="signup" aria-labelledby="signup-title">
+    <div class="wrap">
+      <div class="coupon">
+        <span class="scissors" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1f2a44" stroke-width="2" stroke-linecap="square"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
+        </span>
+        <div class="coupon-inner">
+          <div class="pitch">
+            <p class="label">The drop list</p>
+            <h2 id="signup-title">First Dibs on the Trail.</h2>
+            <p>Drop list members get the first chance to buy our debut release, before the public.</p>
+            <ul class="perks">
+              <li><span class="tick" aria-hidden="true"><i></i><i></i><i></i></span><span>First access to the Heritage Trail Sock</span></li>
+              <li><span class="tick" aria-hidden="true"><i></i><i></i><i></i></span><span>Early looks at upcoming Mountain Retro designs</span></li>
+              <li><span class="tick" aria-hidden="true"><i></i><i></i><i></i></span><span>Updates when new releases are announced</span></li>
+            </ul>
+          </div>
+          <div class="form-side" id="join">
+            <h3>Join the drop list</h3>
+            <p class="label form-label" id="email-hint">Your email address</p>
+            <div id="kit-form">
+              <script async data-uid="367724b386" src="https://mountainretro.kit.com/367724b386/index.js"></script>
+            </div>
+            <p class="kit-fallback" id="kit-fallback">The signup form didn't load. <a href="https://mountainretro.kit.com/367724b386">Join the drop list here</a>.</p>
+            <p class="small">Just your email. Unsubscribe any time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="assets/img/mountain-retro-lockup-dark-transparent.svg" alt="Mountain Retro" width="180" height="42" loading="lazy">
+    <span class="label tag">Rugged never goes out of style.</span>
+    <small>&copy; <span id="yr">2026</span> Mountain Retro. Los Angeles, California.</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Once Kit's form renders: use the light badge variant (still visible, as Kit requires on the free plan),
+  // and match the button wording used everywhere else on the page.
+  (function () {
+    var box = document.getElementById('kit-form');
+    function tidy() {
+      var badge = box.querySelector('.formkit-powered-by-convertkit');
+      if (badge) badge.setAttribute('data-variant', 'light');
+      var btn = box.querySelector('.formkit-submit span');
+      if (btn && btn.textContent.trim() === 'Subscribe') btn.textContent = 'Join the drop list';
+      var input = box.querySelector('input[type=email]');
+      if (input) input.setAttribute('aria-describedby', 'email-hint');
+      return !!badge || !!btn;
+    }
+    if (!tidy()) new MutationObserver(function (m, obs) { if (tidy()) obs.disconnect(); }).observe(box, { childList: true, subtree: true });
+  })();
+
+  // "Join the drop list" links: scroll to the form, then put the cursor in the email field.
+  document.querySelectorAll('a[href="#join"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      setTimeout(function () {
+        var input = document.querySelector('#kit-form input[type=email]');
+        if (input && window.matchMedia('(pointer: fine)').matches) input.focus({ preventScroll: true });
+      }, 600);
+    });
+  });
+  // If the Kit form hasn't rendered after a few seconds (blocked script, offline), show a real link to Kit's hosted form.
+  setTimeout(function () {
+    var box = document.getElementById('kit-form');
+    if (!box.querySelector('form, .formkit-form')) document.getElementById('kit-fallback').classList.add('show');
+  }, 6000);
+</script>
+</body>
+</html>
