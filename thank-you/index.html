@@ -26,27 +26,36 @@
 
 .poll-page { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; background: var(--navy); }
 .poll-page .masthead { background: var(--cream); }
+.social-head { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; font-weight: 500; text-decoration: none; color: var(--navy); }
+.social-head svg { color: var(--orange); }
+.social-head:hover span { text-decoration: underline; }
 .poll-page main { flex: 1; display: flex; }
 .poll { background: var(--navy); color: var(--cream); flex: 1; display: flex; align-items: center; }
 .poll .wrap { width: 100%; }
-.poll .wrap { padding-top: clamp(32px, 4vw, 56px); padding-bottom: clamp(40px, 5vw, 72px); }
-.poll-head { margin-bottom: 28px; }
-.poll-head .kicker { color: var(--gold-on-navy); margin: 0 0 12px; font-size: clamp(17px, 1.5vw, 20px); font-weight: 500; line-height: 1.4; }
-.poll h1 { margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: .95; font-weight: 700; letter-spacing: -.02em; }
+.poll .wrap { padding-top: clamp(24px, 3vh, 48px); padding-bottom: clamp(24px, 3vh, 48px); }
+.poll-head { margin-bottom: 22px; }
+.poll-head p { margin: 8px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.45; max-width: 720px; }
+.poll-head .ask { margin-top: 20px; border-top: 2px solid rgba(243, 234, 216, .3); padding-top: 18px; }
+.poll h2 { margin: 0; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05; font-weight: 700; color: var(--gold-on-navy); }
+.poll-page .foot .wrap { padding-top: 22px; padding-bottom: 22px; border-top: 1px solid rgba(243, 234, 216, .2); }
+.poll h1 { margin: 0; font-size: clamp(40px, 4.4vw, 60px); line-height: .95; font-weight: 700; letter-spacing: -.02em; }
 
 .ballot { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
 .ballot legend { position: absolute; left: -9999px; }
 .opt { position: relative; }
 .opt input { position: absolute; opacity: 0; top: 24px; left: 24px; width: 1px; height: 1px; margin: 0; pointer-events: none; }
 .opt label {
-  display: grid; grid-template-rows: 1fr auto; gap: 18px; height: 100%;
-  min-height: 150px; padding: 18px 18px 16px;
+  display: grid; grid-template-rows: auto 1fr auto; gap: 12px; height: 100%;
+  padding: 16px 16px 14px;
   border: 2px solid var(--cream); cursor: pointer;
   transition: background .12s ease, color .12s ease;
 }
+.opt svg { width: 40px; height: 40px; }
 .opt .name { font-size: 22px; font-weight: 700; line-height: 1.05; }
 .opt .desc { font-size: 15px; line-height: 1.45; display: block; margin-top: 8px; font-weight: 400; }
-.opt .box { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
+.opt .box { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; padding-top: 10px; border-top: 1px dotted rgba(243, 234, 216, .45); }
+.opt input:checked + label .box { border-top-color: rgba(31, 42, 68, .35); }
+.opt input:checked + label svg { color: var(--orange); }
 .opt .box::before { content: ""; width: 20px; height: 20px; border: 2px solid currentColor; flex: none; }
 .opt label:hover { background: rgba(243, 234, 216, .08); }
 .opt input:focus-visible + label { outline: 3px solid var(--gold-on-navy); outline-offset: 3px; }
@@ -54,7 +63,7 @@
 .opt input:checked + label .box::before { background: var(--navy); box-shadow: inset 0 0 0 3px var(--cream); }
 .opt input:disabled + label { cursor: default; }
 
-.poll-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 28px; }
+.poll-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: 22px; }
 .poll .btn { background: var(--orange-on-navy); color: var(--navy); border-color: var(--orange-on-navy); box-shadow: 6px 6px 0 var(--gold-on-navy); }
 .poll .btn:hover { box-shadow: 4px 4px 0 var(--gold-on-navy); }
 .poll .btn[disabled] { opacity: .55; cursor: not-allowed; transform: none; }
@@ -62,22 +71,47 @@
 .status.ok { color: var(--gold-on-navy); font-weight: 700; }
 .status.warn { color: var(--cream); background: var(--sock-red); padding: 8px 12px; font-weight: 500; }
 
-@media (max-width: 1100px) {
+@media (max-width: 999px) {
   .ballot { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+@media (max-width: 1100px) {
+  .opt .name { font-size: 19px; }
+  .opt .desc { font-size: 14px; }
+}
+@media (max-height: 800px) and (min-width: 561px) {
+  .poll-page .masthead .wrap { padding-top: 14px; padding-bottom: 14px; }
+  .poll .wrap { padding-top: 20px; padding-bottom: 20px; }
+  .poll h1 { font-size: clamp(36px, 3.6vw, 48px); }
+  .poll-head { margin-bottom: 16px; }
+  .poll-head p { margin-top: 4px; }
+  .poll-head .ask { margin-top: 12px; padding-top: 12px; }
+  .opt .desc { margin-top: 4px; }
+  .opt svg { width: 32px; height: 32px; }
+  .opt label { gap: 8px; padding-top: 12px; padding-bottom: 12px; }
+  .poll .wrap { padding-top: 14px; padding-bottom: 14px; }
+  .poll-actions { margin-top: 16px; }
+  .poll-page .foot .wrap { padding-top: 14px; padding-bottom: 14px; }
+  .opt label { gap: 10px; padding-top: 14px; }
+}
 @media (max-width: 900px) {
+  .poll-head .ask { margin-top: 16px; padding-top: 14px; }
   .ballot { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .opt label { min-height: 0; gap: 10px; padding: 12px 14px; }
+  .opt label { gap: 8px; padding: 12px 14px; }
+  .opt svg { width: 40px; height: 40px; }
 }
 @media (max-width: 560px) {
   .poll-page .masthead .wrap { padding-top: 12px; padding-bottom: 12px; }
   .poll-page .masthead .logo img { width: 150px; }
+  .social-head span { display: none; }
+  .poll-page .foot .tag { display: none; }
   .poll .wrap { padding-top: 20px; padding-bottom: 24px; }
   .poll-head { margin-bottom: 18px; }
-  .poll-head .kicker { font-size: 15px; margin-bottom: 8px; }
-  .poll h1 { font-size: 32px; }
+  .poll-head p { margin-top: 6px; font-size: 15px; }
+  .poll h1 { font-size: 36px; }
+  .poll h2 { font-size: 22px; }
   .ballot { gap: 8px; }
-  .opt label { padding: 10px 12px; gap: 8px; }
+  .opt label { padding: 10px 12px; gap: 6px; }
+  .opt svg { width: 32px; height: 32px; }
   .opt .name { font-size: 17px; }
   .opt .desc { font-size: 13px; line-height: 1.35; margin-top: 4px; }
   .opt .box { font-size: 11px; letter-spacing: .12em; }
@@ -98,15 +132,25 @@
     <a class="logo" href="../" aria-label="Mountain Retro home">
       <img src="../assets/img/mountain-retro-lockup-light-transparent.svg" alt="Mountain Retro" width="236" height="55">
     </a>
+    <a class="social social-head" href="https://www.instagram.com/mountainretroco/" target="_blank" rel="noopener" aria-label="Mountain Retro on Instagram (opens in a new tab)">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        <span>@mountainretroco</span>
+      </a>
   </div>
 </header>
 
 <main>
-  <section class="poll" aria-labelledby="poll-title">
+  <section class="poll" aria-labelledby="confirm-title">
     <div class="wrap">
       <div class="poll-head">
-        <p class="kicker">Confirmed. You're on our list! While you're here, we've got one question for you (totally optional)...</p>
-        <h1 id="poll-title">What should we make next?</h1>
+        <div>
+          <h1 id="confirm-title">Confirmed</h1>
+          <p>You're on our list! We'll let you know as soon as the Heritage Trail Sock drops.</p>
+        </div>
+        <div class="ask">
+          <h2 id="poll-title">While you're here...</h2>
+          <p>What should we make next? Choose one.</p>
+        </div>
       </div>
 
       <form id="poll" novalidate>
@@ -115,35 +159,35 @@
           <div class="opt">
             <input type="radio" name="choice" id="c-tee" value="ringer-tee">
             <label for="c-tee">
-              <span><span class="name">Ringer tee</span><span class="desc">Contrast collar and cuffs. Soft, broken-in cotton.</span></span>
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true"><path d="M17 8 7 14l4 7 5-2v21h16V19l5 2 4-7-10-6"/><path d="M17 8c2 4 12 4 14 0"/><path d="M8 16l3 4M40 16l-3 4"/></svg><span><span class="name">Ringer tee</span><span class="desc">Contrast collar and cuffs. Soft, broken-in cotton.</span></span>
               <span class="box">Pick this</span>
             </label>
           </div>
           <div class="opt">
             <input type="radio" name="choice" id="c-shorts" value="retro-trail-shorts">
             <label for="c-shorts">
-              <span><span class="name">Retro trail shorts</span><span class="desc">Short inseam, old-school cut. Made for the trail.</span></span>
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true"><path d="M11 10h26l4 28H29l-5-15-5 15H7Z"/><path d="M11 15h26"/></svg><span><span class="name">Retro trail shorts</span><span class="desc">Short inseam, old-school cut. Made for the trail.</span></span>
               <span class="box">Pick this</span>
             </label>
           </div>
           <div class="opt">
             <input type="radio" name="choice" id="c-socks" value="more-sock-designs">
             <label for="c-socks">
-              <span><span class="name">More sock designs</span><span class="desc">New stripes, new colors. More of the first thing.</span></span>
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true"><path d="M21 5h11v21l8 7a3.6 3.6 0 0 1-2.5 6.3H27"/><path d="M12 10h11v20l8 7a3.6 3.6 0 0 1-2.5 6.3H18l-6-6Z"/><path d="M12 15h11M12 19h11"/></svg><span><span class="name">More sock designs</span><span class="desc">New stripes, new colors. More of the first thing.</span></span>
               <span class="box">Pick this</span>
             </label>
           </div>
           <div class="opt">
             <input type="radio" name="choice" id="c-cap" value="trailhead-cap">
             <label for="c-cap">
-              <span><span class="name">Trailhead cap</span><span class="desc">Five panels, rope across the brim. Made for sun and switchbacks.</span></span>
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true"><path d="M8 31c0-11 7-18 16-18s15 7 15 18Z"/><path d="M39 31h7l-2 4H8"/><path d="M24 13v-2M24 13v18"/><path d="M30 33l9-2"/></svg><span><span class="name">Trailhead cap</span><span class="desc">Five panels, rope across the brim. Made for sun and switchbacks.</span></span>
               <span class="box">Pick this</span>
             </label>
           </div>
           <div class="opt">
             <input type="radio" name="choice" id="c-beanie" value="basecamp-beanie">
             <label for="c-beanie">
-              <span><span class="name">Basecamp beanie</span><span class="desc">Ribbed knit, fold-up cuff, stripe to match the socks.</span></span>
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true"><path d="M10 31c0-12 6-19 14-19s14 7 14 19"/><path d="M8 31h32v8H8Z"/><path d="M14 31v8M20 31v8M26 31v8M32 31v8"/><circle cx="24" cy="8" r="3"/></svg><span><span class="name">Basecamp beanie</span><span class="desc">Ribbed knit, fold-up cuff, stripe to match the socks.</span></span>
               <span class="box">Pick this</span>
             </label>
           </div>
@@ -159,8 +203,23 @@
 
 </main>
 
+<footer class="foot">
+  <div class="wrap">
+    <img src="../assets/img/mountain-retro-lockup-dark-transparent.svg" alt="Mountain Retro" width="180" height="42" loading="lazy">
+    <span class="label tag">Rugged never goes out of style.</span>
+    <div class="foot-end">
+      <a class="social" href="https://www.instagram.com/mountainretroco/" target="_blank" rel="noopener" aria-label="Mountain Retro on Instagram (opens in a new tab)">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        <span>@mountainretroco</span>
+      </a>
+      <small>&copy; <span id="yr">2026</span> Mountain Retro. Los Angeles, California.</small>
+    </div>
+  </div>
+</footer>
+
 <script>
 (function () {
+  document.getElementById('yr').textContent = new Date().getFullYear();
   var ENDPOINT = (window.MR_POLL_ENDPOINT || '').trim();
   var KEY = 'mr_poll_vote_v2';
   var EMAIL_KEY = 'mr_email';
