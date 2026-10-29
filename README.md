@@ -48,6 +48,7 @@ Any endpoint that accepts a POST with a JSON body (sent as `text/plain`) and ret
 
 Notes:
 - A vote only shows "Vote counted" after the endpoint confirms the save. Failures say the vote wasn't saved.
-- Each vote is saved with the voter's email. The landing page remembers the address typed into the Kit form, so the poll's email field is usually filled in already; voters who arrive another way type it in.
+- Each vote is saved with who voted, in the `email` column. The page uses, in order: `?email=` in the link, the address the landing page saved when they signed up in the same browser, or `?ck_subscriber_id=` in the link (saved as `kit:<id>`, which you can look up in Kit). If none of these is available, the column is blank.
+- After a successful vote the button shows "Submitted!" and the page returns to the homepage.
 - The browser remembers a confirmed vote so the same visitor isn't asked twice. This is a soft limit, not fraud protection.
 - When you change the script, save it, then Deploy > Manage deployments > edit (pencil) > Version: New version > Deploy. This keeps the same `/exec` URL.
