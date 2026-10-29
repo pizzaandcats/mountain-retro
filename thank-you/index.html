@@ -24,40 +24,26 @@
 .setup-note .wrap { padding-top: 10px; padding-bottom: 10px; font-size: 14px; }
 .setup-note code { font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
 
-.confirm .wrap {
-  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 4vw, 64px); align-items: center;
-  padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 6vw, 80px);
-}
-.confirm .kicker { display: flex; align-items: center; gap: 14px; margin: 0 0 22px; }
-.confirm .kicker::before { content: ""; width: 36px; height: 10px; background: var(--trail-green); flex: none; }
-.confirm h1 { margin: 0 0 24px; font-size: clamp(52px, 7vw, 100px); line-height: .9; font-weight: 700; letter-spacing: -.025em; }
-.confirm .lede { margin: 0 0 18px; font-size: clamp(19px, 1.7vw, 23px); line-height: 1.4; max-width: 560px; }
-.confirm .note { margin: 0; font-size: 17px; max-width: 520px; border-left: 0; padding: 14px 0 0; border-top: 2px solid var(--navy); }
-.confirm .frame { background: var(--navy); padding: 12px; }
-.confirm .frame img { width: 100%; aspect-ratio: 1200 / 748; object-fit: cover; }
-.confirm figcaption { background: var(--navy); color: var(--cream); padding: 4px 14px 14px; font-size: 14px; display: flex; justify-content: space-between; gap: 12px; }
-.confirm figcaption .label { color: var(--gold-on-navy); white-space: nowrap; }
-
 .poll { background: var(--navy); color: var(--cream); }
-.poll .wrap { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
-.poll-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); align-items: end; margin-bottom: 36px; }
-.poll-head .label { color: var(--gold-on-navy); margin: 0 0 14px; }
-.poll h2 { margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: .95; font-weight: 700; letter-spacing: -.02em; }
-.poll-head p { margin: 0; font-size: 19px; max-width: 520px; }
+.poll .wrap { padding-top: clamp(32px, 4vw, 56px); padding-bottom: clamp(40px, 5vw, 72px); }
+.poll-head { margin-bottom: 28px; }
+.poll-head .label { color: var(--gold-on-navy); margin: 0 0 12px; }
+.poll h1 { margin: 0 0 14px; font-size: clamp(36px, 4.4vw, 60px); line-height: .95; font-weight: 700; letter-spacing: -.02em; }
+.poll-head p { margin: 0; font-size: 18px; max-width: 720px; }
 
-.ballot { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ballot { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
 .ballot legend { position: absolute; left: -9999px; }
 .opt { position: relative; }
 .opt input { position: absolute; opacity: 0; top: 24px; left: 24px; width: 1px; height: 1px; margin: 0; pointer-events: none; }
 .opt label {
   display: grid; grid-template-rows: auto 1fr auto; gap: 18px; height: 100%;
-  min-height: 190px; padding: 22px 22px 20px;
+  min-height: 170px; padding: 18px 18px 16px;
   border: 2px solid var(--cream); cursor: pointer;
   transition: background .12s ease, color .12s ease;
 }
-.opt .no { font-size: 40px; font-weight: 700; line-height: 1; color: var(--orange-on-navy); }
-.opt .name { font-size: 26px; font-weight: 700; line-height: 1.05; }
-.opt .desc { font-size: 17px; line-height: 1.45; display: block; margin-top: 8px; font-weight: 400; }
+.opt .no { font-size: 34px; font-weight: 700; line-height: 1; color: var(--orange-on-navy); }
+.opt .name { font-size: 22px; font-weight: 700; line-height: 1.05; }
+.opt .desc { font-size: 15px; line-height: 1.45; display: block; margin-top: 8px; font-weight: 400; }
 .opt .box { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
 .opt .box::before { content: ""; width: 20px; height: 20px; border: 2px solid currentColor; flex: none; }
 .opt label:hover { background: rgba(243, 234, 216, .08); }
@@ -67,11 +53,17 @@
 .opt input:checked + label .box::before { background: var(--navy); box-shadow: inset 0 0 0 3px var(--cream); }
 .opt input:disabled + label { cursor: default; }
 
-.poll-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 32px; }
+.poll-actions { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px 28px; margin-top: 28px; }
+.email-field { display: flex; flex-direction: column; gap: 8px; flex: 0 1 340px; }
+.email-field .label { color: var(--gold-on-navy); }
+.email-field input { font: inherit; font-size: 17px; min-height: 52px; padding: 12px 14px; border: 2px solid var(--cream); border-radius: 0; background: transparent; color: var(--cream); width: 100%; }
+.email-field input::placeholder { color: rgba(243, 234, 216, .55); }
+.email-field input:focus-visible { outline: 3px solid var(--gold-on-navy); outline-offset: 2px; }
+.email-field input:disabled { opacity: .7; }
 .poll .btn { background: var(--orange-on-navy); color: var(--navy); border-color: var(--orange-on-navy); box-shadow: 6px 6px 0 var(--gold-on-navy); }
 .poll .btn:hover { box-shadow: 4px 4px 0 var(--gold-on-navy); }
 .poll .btn[disabled] { opacity: .55; cursor: not-allowed; transform: none; }
-.status { margin: 0; font-size: 16px; min-height: 1.5em; }
+.status { margin: 0; font-size: 16px; min-height: 1.5em; flex-basis: 100%; }
 .status.ok { color: var(--gold-on-navy); font-weight: 700; }
 .status.warn { color: var(--cream); background: var(--sock-red); padding: 8px 12px; font-weight: 500; }
 
@@ -80,15 +72,17 @@
 .back p { margin: 0; font-size: 18px; font-weight: 500; }
 .back a.text { font-weight: 700; }
 
+@media (max-width: 1100px) {
+  .ballot { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 900px) {
-  .confirm .wrap, .poll-head { grid-template-columns: 1fr; }
-  .ballot { grid-template-columns: 1fr; }
-  .opt label { min-height: 0; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 18px; }
+  .ballot { grid-template-columns: 1fr; gap: 10px; }
+  .opt label { min-height: 0; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 18px; row-gap: 10px; }
   .opt .no { grid-row: 1 / span 2; font-size: 32px; }
   .opt .box { grid-column: 2; }
 }
 @media (max-width: 560px) {
-  .strip .wrap > span:last-child { display: none; }
+  .email-field { flex-basis: 100%; }
   .poll .btn { width: 100%; }
 }
 </style>
@@ -97,13 +91,6 @@
 
 <div class="setup-note" id="setup-note" role="note">
   <div class="wrap"><strong>Setup needed:</strong> poll votes are not being saved yet. Add an endpoint URL to <code>MR_POLL_ENDPOINT</code> in <code>thank-you/index.html</code> (see README).</div>
-</div>
-
-<div class="strip">
-  <div class="wrap">
-    <span class="label">Everyday outdoor style <span class="gold">/</span> Los Angeles</span>
-    <span class="label">First release: <span class="gold">the Heritage Trail Sock</span></span>
-  </div>
 </div>
 
 <header class="masthead">
@@ -116,33 +103,12 @@
 </header>
 
 <main>
-  <section class="confirm" aria-labelledby="ty-title">
-    <div class="wrap">
-      <div>
-        <p class="kicker label">First Dibs on the Trail</p>
-        <h1 id="ty-title">You're on the list.</h1>
-        <p class="lede">Thanks for joining. When the Heritage Trail Sock is ready, the drop list hears first and shops first.</p>
-        <p class="note">Check your inbox. If there's an email from us asking you to confirm, give it a click so we can reach you.</p>
-      </div>
-      <figure>
-        <div class="frame">
-          <img src="../assets/img/mountain-retro-socks-detail.jpg" width="1200" height="748"
-               alt="Close-up of tall heathered gray socks with cream ribbed cuffs and a red stripe, worn with brown sandals on wooden steps.">
-        </div>
-        <figcaption><span>Item 01. The Heritage Trail Sock. In development.</span><span class="label">Plate 01</span></figcaption>
-      </figure>
-    </div>
-    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
-  </section>
-
   <section class="poll" aria-labelledby="poll-title">
     <div class="wrap">
       <div class="poll-head">
-        <div>
-          <p class="label">One question. Optional.</p>
-          <h2 id="poll-title">What should we make next?</h2>
-        </div>
-        <p>Socks come first. After that, you tell us. Pick the one you'd want most.</p>
+        <p class="label">You're on the list. One question. Optional.</p>
+        <h1 id="poll-title">What should we make next?</h1>
+        <p>Socks come first. After that, you tell us. Pick the one you'd want most. (Check your inbox too: if we've asked you to confirm, give it a click.)</p>
       </div>
 
       <form id="poll" novalidate>
@@ -152,7 +118,7 @@
             <input type="radio" name="choice" id="c-tee" value="ringer-tee">
             <label for="c-tee">
               <span class="no" aria-hidden="true">02</span>
-              <span><span class="name">Ringer tee</span><span class="desc">Contrast collar and cuffs. The one in the photo.</span></span>
+              <span><span class="name">Ringer tee</span><span class="desc">Contrast collar and cuffs. Soft, broken-in cotton.</span></span>
               <span class="box">Pick this</span>
             </label>
           </div>
@@ -160,7 +126,7 @@
             <input type="radio" name="choice" id="c-shorts" value="retro-trail-shorts">
             <label for="c-shorts">
               <span class="no" aria-hidden="true">03</span>
-              <span><span class="name">Retro trail shorts</span><span class="desc">Short inseam, old-school cut. Also in the photo.</span></span>
+              <span><span class="name">Retro trail shorts</span><span class="desc">Short inseam, old-school cut. Made for the trail.</span></span>
               <span class="box">Pick this</span>
             </label>
           </div>
@@ -172,9 +138,29 @@
               <span class="box">Pick this</span>
             </label>
           </div>
+          <div class="opt">
+            <input type="radio" name="choice" id="c-cap" value="trailhead-cap">
+            <label for="c-cap">
+              <span class="no" aria-hidden="true">05</span>
+              <span><span class="name">Trailhead cap</span><span class="desc">Five panels, rope across the brim. Made for sun and switchbacks.</span></span>
+              <span class="box">Pick this</span>
+            </label>
+          </div>
+          <div class="opt">
+            <input type="radio" name="choice" id="c-beanie" value="basecamp-beanie">
+            <label for="c-beanie">
+              <span class="no" aria-hidden="true">06</span>
+              <span><span class="name">Basecamp beanie</span><span class="desc">Ribbed knit, fold-up cuff, stripe to match the socks.</span></span>
+              <span class="box">Pick this</span>
+            </label>
+          </div>
         </fieldset>
 
         <div class="poll-actions">
+          <div class="email-field">
+            <label class="label" for="poll-email">Your email</label>
+            <input type="email" id="poll-email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          </div>
           <button class="btn" type="submit" id="vote-btn">Cast your vote <span class="arrow" aria-hidden="true">&rarr;</span></button>
           <p class="status" id="status" role="status" aria-live="polite"></p>
         </div>
@@ -203,15 +189,19 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   var ENDPOINT = (window.MR_POLL_ENDPOINT || '').trim();
-  var KEY = 'mr_poll_vote_v1';
+  var KEY = 'mr_poll_vote_v2';
+  var EMAIL_KEY = 'mr_email';
   var form = document.getElementById('poll');
   var btn = document.getElementById('vote-btn');
   var status = document.getElementById('status');
-  var names = { 'ringer-tee': 'the ringer tee', 'retro-trail-shorts': 'retro trail shorts', 'more-sock-designs': 'more sock designs' };
+  var emailInput = document.getElementById('poll-email');
+  var names = { 'ringer-tee': 'the ringer tee', 'retro-trail-shorts': 'retro trail shorts', 'more-sock-designs': 'more sock designs', 'trailhead-cap': 'the trailhead cap', 'basecamp-beanie': 'the basecamp beanie' };
 
   function store(get, val) {
     try { return get ? localStorage.getItem(KEY) : localStorage.setItem(KEY, val); } catch (e) { return null; }
   }
+  // The landing page saves the address typed into the Kit form, so most voters see it filled in already.
+  try { var saved = localStorage.getItem(EMAIL_KEY); if (saved) emailInput.value = saved; } catch (e) {}
   function say(msg, cls) { status.textContent = msg; status.className = 'status' + (cls ? ' ' + cls : ''); }
   function lock(choice) {
     var el = form.querySelector('input[value="' + choice + '"]');
@@ -231,6 +221,8 @@
     var picked = form.querySelector('input[name="choice"]:checked');
     if (!picked) { say('Pick one first.'); return; }
     var choice = picked.value;
+    var email = emailInput.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say('Add the email you signed up with first.'); emailInput.focus(); return; }
 
     if (!ENDPOINT) {
       say('Heads up: poll storage isn\'t connected yet, so this vote was not saved.', 'warn');
@@ -243,12 +235,13 @@
     fetch(ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ choice: choice, submitted_at: new Date().toISOString(), page: location.pathname })
+      body: JSON.stringify({ choice: choice, email: email, submitted_at: new Date().toISOString(), page: location.pathname })
     })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json().catch(function () { return {}; }); })
       .then(function (data) {
         if (data && data.ok === false) throw new Error('rejected');
         store(false, choice);
+        try { localStorage.setItem(EMAIL_KEY, email); } catch (e) {}
         lock(choice);
         say('Vote counted for ' + names[choice] + '. Thanks for weighing in.', 'ok');
       })

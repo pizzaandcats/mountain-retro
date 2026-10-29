@@ -318,6 +318,11 @@
       return !!badge || !!btn;
     }
     if (!tidy()) new MutationObserver(function (m, obs) { if (tidy()) obs.disconnect(); }).observe(box, { childList: true, subtree: true });
+    // Remember the signup email so the thank-you poll can fill it in.
+    box.addEventListener('submit', function () {
+      var input = box.querySelector('input[type=email]');
+      if (input && input.value) { try { localStorage.setItem('mr_email', input.value.trim()); } catch (e) {} }
+    }, true);
   })();
 
   // "Join the drop list" links: scroll to the form, then put the cursor in the email field.

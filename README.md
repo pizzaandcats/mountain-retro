@@ -20,11 +20,11 @@ assets/img/           Approved logo SVGs (unchanged) + web-sized versions of the
 
 ## Poll storage: Google Sheets in about 5 minutes
 
-1. Create a Google Sheet. Add headers in row 1: `submitted_at | choice | page`.
+1. Create a Google Sheet. Add headers in row 1: `submitted_at | choice | email | page`.
 2. Extensions > Apps Script. Replace the code with:
 
 ```js
-const ALLOWED = ['ringer-tee', 'retro-trail-shorts', 'more-sock-designs'];
+const ALLOWED = ['ringer-tee', 'retro-trail-shorts', 'more-sock-designs', 'trailhead-cap', 'basecamp-beanie'];
 
 function doPost(e) {
   let data = {};
@@ -34,7 +34,7 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
   }
   SpreadsheetApp.getActiveSpreadsheet().getSheets()[0]
-    .appendRow([new Date(), data.choice, String(data.page || '').slice(0, 100)]);
+    .appendRow([new Date(), data.choice, String(data.email || '').slice(0, 254), String(data.page || '').slice(0, 100)]);
   return ContentService.createTextOutput(JSON.stringify({ ok: true }))
     .setMimeType(ContentService.MimeType.JSON);
 }
@@ -48,4 +48,6 @@ Any endpoint that accepts a POST with a JSON body (sent as `text/plain`) and ret
 
 Notes:
 - A vote only shows "Vote counted" after the endpoint confirms the save. Failures say the vote wasn't saved.
-- The browser remembers a confirmed vote so the same visitor isn't asked twice. This is a soft limit, not fraud protection. Votes aren't tied to email addresses.
+- Each vote is saved with the voter's email. The landing page remembers the address typed into the Kit form, so the poll's email field is usually filled in already; voters who arrive another way type it in.
+- The browser remembers a confirmed vote so the same visitor isn't asked twice. This is a soft limit, not fraud protection.
+- When you change the script, save it, then Deploy > Manage deployments > edit (pencil) > Version: New version > Deploy. This keeps the same `/exec` URL.
