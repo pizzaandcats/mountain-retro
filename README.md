@@ -3,7 +3,7 @@
 Static site. No build step. Upload the whole folder to any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages, Shopify theme assets, etc.).
 
 ```
-index.html            Landing page (Kit form embedded in the "First Dibs on the Trail" coupon)
+index.html            Landing page (Kit form embedded in the "First on the trail" coupon)
 thank-you/index.html  Post-signup page with the "What should we make next?" poll
 assets/site.css       Shared styles (brand tokens from the Mountain Retro design system)
 assets/fonts/         Jost (self-hosted, SIL Open Font License, see OFL-LICENSE.txt)
