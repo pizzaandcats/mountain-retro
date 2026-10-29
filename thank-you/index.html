@@ -33,10 +33,12 @@
 .poll { background: var(--navy); color: var(--cream); flex: 1; display: flex; align-items: center; }
 .poll .wrap { width: 100%; }
 .poll .wrap { padding-top: clamp(24px, 3vh, 48px); padding-bottom: clamp(24px, 3vh, 48px); }
-.poll-head { margin-bottom: 22px; }
+.poll-head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); align-items: end; margin-bottom: 24px; }
+.poll-head p { margin: 10px 0 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.45; max-width: 560px; }
+.poll-head .ask { border-left: 2px solid rgba(243, 234, 216, .3); padding-left: clamp(20px, 3vw, 40px); }
+.poll h2 { margin: 0; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05; font-weight: 700; color: var(--gold-on-navy); }
 .poll-page .foot .wrap { padding-top: 22px; padding-bottom: 22px; border-top: 1px solid rgba(243, 234, 216, .2); }
-.poll-head .kicker { color: var(--gold-on-navy); margin: 0 0 12px; font-size: clamp(17px, 1.5vw, 20px); font-weight: 500; line-height: 1.4; }
-.poll h1 { margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: .95; font-weight: 700; letter-spacing: -.02em; }
+.poll h1 { margin: 0; font-size: clamp(40px, 5vw, 68px); line-height: .95; font-weight: 700; letter-spacing: -.02em; }
 
 .ballot { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
 .ballot legend { position: absolute; left: -9999px; }
@@ -76,10 +78,16 @@
   .opt .name { font-size: 19px; }
   .opt .desc { font-size: 14px; }
 }
-@media (max-height: 760px) and (min-width: 561px) {
+@media (max-height: 800px) and (min-width: 561px) {
   .poll-page .masthead .wrap { padding-top: 14px; padding-bottom: 14px; }
+  .poll .wrap { padding-top: 20px; padding-bottom: 20px; }
+  .poll h1 { font-size: clamp(40px, 4.2vw, 56px); }
+  .poll-head { margin-bottom: 18px; }
+  .opt label { gap: 10px; padding-top: 14px; }
 }
 @media (max-width: 900px) {
+  .poll-head { grid-template-columns: 1fr; gap: 16px; }
+  .poll-head .ask { border-left: 0; padding-left: 0; border-top: 2px solid rgba(243, 234, 216, .3); padding-top: 14px; }
   .ballot { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .opt label { gap: 8px; padding: 12px 14px; }
   .opt svg { width: 40px; height: 40px; }
@@ -91,8 +99,9 @@
   .poll-page .foot .tag { display: none; }
   .poll .wrap { padding-top: 20px; padding-bottom: 24px; }
   .poll-head { margin-bottom: 18px; }
-  .poll-head .kicker { font-size: 15px; margin-bottom: 8px; }
-  .poll h1 { font-size: 32px; }
+  .poll-head p { margin-top: 6px; font-size: 15px; }
+  .poll h1 { font-size: 36px; }
+  .poll h2 { font-size: 22px; }
   .ballot { gap: 8px; }
   .opt label { padding: 10px 12px; gap: 6px; }
   .opt svg { width: 32px; height: 32px; }
@@ -124,11 +133,17 @@
 </header>
 
 <main>
-  <section class="poll" aria-labelledby="poll-title">
+  <section class="poll" aria-labelledby="confirm-title">
     <div class="wrap">
       <div class="poll-head">
-        <p class="kicker">Confirmed. You're on our list! While you're here, we've got one question for you (totally optional)...</p>
-        <h1 id="poll-title">What should we make next?</h1>
+        <div>
+          <h1 id="confirm-title">Confirmed</h1>
+          <p>You're on our list! We'll let you know as soon as the Heritage Trail Sock drops.</p>
+        </div>
+        <div class="ask">
+          <h2 id="poll-title">While you're here...</h2>
+          <p>What should we make next? Choose one.</p>
+        </div>
       </div>
 
       <form id="poll" novalidate>
