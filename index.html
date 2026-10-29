@@ -64,7 +64,9 @@
 .features figcaption b { color: var(--gold-on-navy); font-size: 14px; letter-spacing: .1em; }
 .features-note { margin: 18px 0 clamp(48px, 6vw, 72px); font-size: 14px; border-top: 1px solid rgba(243, 234, 216, .35); padding-top: 12px; }
 .item { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
-.item .num { font-size: 64px; font-weight: 700; line-height: 1; color: var(--orange-on-navy); margin: 0 0 6px; letter-spacing: -.02em; }
+.item .num { display: flex; align-items: center; gap: 14px; margin: 0 0 10px; color: var(--orange-on-navy); }
+.item .num b { font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: -.02em; }
+.item .num .label { font-size: 13px; line-height: 1.35; color: var(--gold-on-navy); border-left: 2px solid currentColor; padding-left: 14px; }
 .item h2 { margin: 0 0 18px; font-size: clamp(34px, 3.6vw, 48px); line-height: 1; font-weight: 700; }
 .item p { margin: 0 0 16px; font-size: 19px; line-height: 1.5; max-width: 600px; }
 .item p.label { font-size: 12px; line-height: 1.4; }
@@ -279,14 +281,14 @@
 
       <article class="item">
         <div>
-          <p class="num" aria-hidden="true">01</p>
+          <p class="num"><b aria-hidden="true">01</b><span class="label">Our first<br>release</span></p>
           <h2 id="item-title">The Heritage Trail Sock</h2>
-          <p>Our first release is a crew-height trail sock in the old ragg style: a marled blue-grey leg, a cream ribbed cuff with one red stripe, and a cream heel and toe. Made for the trail, and just as at home at the coffee shop.</p>
+          <p>A crew-height trail sock in the old ragg style: a marled blue-grey leg, a cream ribbed cuff with one red stripe, and a cream heel and toe. Made for the trail, and just as at home at the coffee shop.</p>
           <p>It's in development now. Drop list members hear first when it's ready.</p>
           <a class="btn btn-inv" href="#join">Join the drop list <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
         <aside class="sheet" aria-label="Heritage Trail Sock details">
-          <div class="sheet-head"><span class="label">Spec sheet</span><span class="label">Item 01</span></div>
+          <div class="sheet-head"><span class="label">Spec sheet</span><span class="label">Release 01</span></div>
           <div class="sheet-block">
             <p class="label">Built with</p>
             <ul class="built">
@@ -310,7 +312,7 @@
           </div>
           <dl class="facts">
             <div><dt>Status</dt><dd>In development</dd></div>
-            <div><dt>Price</dt><dd>To be announced</dd></div>
+            <div><dt>Price</dt><dd>TBD</dd></div>
             <div><dt>Release</dt><dd>Drop list first</dd></div>
           </dl>
         </aside>
