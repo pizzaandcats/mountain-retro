@@ -15,12 +15,12 @@
 <style>
 /* ---------- Hero: the print ad ---------- */
 .ad-band { position: relative; background: var(--cream); overflow-x: clip; }
-.ad-band::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: calc((100% - min(100%, 1440px)) / 2 + min(100%, 1440px) * 6 / 11); background: var(--navy); }
+.ad-band::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: calc((100% - min(100%, 1440px)) / 2 + min(100%, 1440px) * 6 / 11); background: var(--navy); border-bottom: 1px solid var(--cream); }
 .ad { position: relative; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); min-height: 820px; }
 .ad-main { margin: auto 0; padding: clamp(28px, 2.6vw, 36px) 0 4px; }
 .ad-logo-mobile { display: none; }
 
-.ad-photo { background: var(--navy); padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 40px) 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; container-type: size; }
+.ad-photo { border-bottom: 1px solid var(--cream); background: var(--navy); padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 40px) 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; container-type: size; }
 /* the plate keeps the photo's own proportions, so his head and feet are never cropped */
 .ad-photo .plate { width: min(100%, calc((100cqh - 42px - 24px) * 0.7467 + 24px)); }
 .ad-photo .inner { border: 2px solid var(--cream); padding: 10px; }
@@ -205,6 +205,7 @@
   .fn-grid { grid-template-columns: 1fr; gap: 32px; }
   .ad { grid-template-columns: 1fr; min-height: 0; }
   .ad-band::before { display: none; }
+  .ad-photo { border-bottom: 0; }
   .ad-photo { container-type: normal; }
   .ad-photo .plate { width: 100%; }
   .ad-logo-mobile { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px var(--gutter); border-bottom: 2px solid var(--navy); }
