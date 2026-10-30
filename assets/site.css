@@ -96,7 +96,7 @@ a { color: inherit; }
 
 /* ---------- Footer ---------- */
 .foot { background: var(--navy); color: var(--cream); }
-.foot .wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; padding-top: 44px; padding-bottom: 44px; }
+.foot .wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; padding-top: 32px; padding-bottom: 32px; }
 .foot img { width: 180px; }
 .foot .tag { color: var(--gold-on-navy); }
 .foot small { font-size: 13px; opacity: .85; text-align: right; }
