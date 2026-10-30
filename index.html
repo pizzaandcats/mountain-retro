@@ -114,6 +114,23 @@
 .lineup-cards .first .s { opacity: 1; color: var(--orange); border-top-color: rgba(31, 42, 68, .35); }
 @media (max-width: 1100px) { .lineup-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
+/* ---------- Field notes (archival photo gallery) ---------- */
+.field-notes .wrap { padding-top: clamp(64px, 8vw, 112px); }
+.fn-head { margin-bottom: clamp(28px, 3vw, 40px); }
+.fn-head h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; }
+.fn-head h2::before { content: ""; width: 28px; height: 10px; background: var(--sock-red); flex: none; }
+.fn-head p { margin: 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 700; letter-spacing: -.01em; }
+.fn-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1.19fr 1.535fr 1.535fr; gap: clamp(16px, 2vw, 28px); align-items: start; }
+.fn-grid figure { margin: 0; }
+.fn-grid img { width: 100%; height: auto; border: 2px solid var(--navy); background: var(--navy); }
+.fn-grid figcaption { padding-top: 12px; }
+.fn-grid .cap { margin: 0; font-size: 17px; line-height: 1.45; }
+.fn-grid .src { margin: 6px 0 0; font-size: 13px; line-height: 1.4; opacity: .75; }
+.fn-follow { margin: clamp(24px, 2.6vw, 32px) 0 0; border-top: 1px solid rgba(31, 42, 68, .25); padding-top: 14px; font-size: 15px; }
+.fn-follow a { font-weight: 500; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.fn-follow a:hover { color: var(--orange); }
+.fn-follow .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
 /* ---------- Signup coupon ---------- */
 .signup .wrap { padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
 .coupon { position: relative; border: 3px dashed var(--navy); padding: 10px; }
@@ -185,6 +202,7 @@
   .ad-cta .fine { max-width: none; }
 }
 @media (max-width: 900px) {
+  .fn-grid { grid-template-columns: 1fr; gap: 32px; }
   .ad { grid-template-columns: 1fr; min-height: 0; }
   .ad-band::before { display: none; }
   .ad-photo { container-type: normal; }
@@ -347,6 +365,30 @@
           <li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true"><path d="M10 31c0-12 6-19 14-19s14 7 14 19"/><path d="M8 31h32v8H8Z"/><path d="M14 31v8M20 31v8M26 31v8M32 31v8"/><circle cx="24" cy="8" r="3"/></svg><span class="n">06</span><span class="t">Basecamp beanie</span><span class="s">On the workbench</span></li>
         </ol>
       </section>
+    </div>
+  </section>
+
+  <section class="field-notes" aria-labelledby="fn-title">
+    <div class="wrap">
+      <div class="fn-head">
+        <h2 class="label" id="fn-title">Field notes</h2>
+        <p>From the archives. Out on the trail.</p>
+      </div>
+      <ul class="fn-grid">
+        <li><figure>
+          <img src="assets/img/field-notes-oregon-1979-800.jpg" srcset="assets/img/field-notes-oregon-1979-800.jpg 800w, assets/img/field-notes-oregon-1979-1400.jpg 1400w" sizes="(max-width: 900px) 100vw, 28vw" width="800" height="673" loading="lazy" decoding="async" alt="A Forest Service wilderness guard shows a map to two backpackers in a mountain meadow.">
+          <figcaption><p class="cap">Oregon, August 1979. Before the blue dot, you unfolded a map and asked a ranger.</p><p class="src">Photographed by Tonya Houg / Three Sisters Wilderness, U.S. Forest Service archives.</p></figcaption>
+        </figure></li>
+        <li><figure>
+          <img src="assets/img/field-notes-mineral-peak-1972-800.jpg" srcset="assets/img/field-notes-mineral-peak-1972-800.jpg 800w, assets/img/field-notes-mineral-peak-1972-1400.jpg 1400w" sizes="(max-width: 900px) 100vw, 36vw" width="800" height="521" loading="lazy" decoding="async" alt="A group of backpackers with external-frame packs resting on rocks above a snowy mountain valley.">
+          <figcaption><p class="cap">Mineral Peak, May 1972. Snow, shorts, and enough gear to open a small outdoor store.</p><p class="src">Photographed for the U.S. National Archives and Records Administration (NARA).</p></figcaption>
+        </figure></li>
+        <li><figure>
+          <img src="assets/img/field-notes-grand-canyon-1972-800.jpg" srcset="assets/img/field-notes-grand-canyon-1972-800.jpg 800w, assets/img/field-notes-grand-canyon-1972-1400.jpg 1400w" sizes="(max-width: 900px) 100vw, 36vw" width="800" height="521" loading="lazy" decoding="async" alt="Two backpackers with external-frame packs walking along a gravel wash past layered red sandstone walls.">
+          <figcaption><p class="cap">Grand Canyon, May 1972. The packs were big. The shorts were not.</p><p class="src">Photographed for the U.S. National Archives and Records Administration (NARA).</p></figcaption>
+        </figure></li>
+      </ul>
+      <p class="fn-follow"><a href="https://www.instagram.com/mountainretroco/" target="_blank" rel="noopener">Follow on Instagram <span aria-hidden="true">&rarr;</span><span class="sr-only"> (opens in a new tab)</span></a></p>
     </div>
   </section>
 
