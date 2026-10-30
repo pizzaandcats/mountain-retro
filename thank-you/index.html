@@ -148,8 +148,8 @@
           <p>You're on our list! We'll let you know as soon as the Heritage Trail Sock drops.</p>
         </div>
         <div class="ask">
-          <h2 id="poll-title">While you're here...</h2>
-          <p>What should we make next? Choose one.</p>
+          <h2 id="poll-title">Help pick what's next.</h2>
+          <p>We're working on the next Mountain Retro release. Which one would you wear?</p>
         </div>
       </div>
 
@@ -253,8 +253,10 @@
   var prior = store(true);
   if (prior && names[prior]) { lock(prior); say('You voted for ' + names[prior] + '. Thanks for weighing in.', 'ok'); }
 
+  var sending = false;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (sending || btn.disabled) return; // one vote in flight at a time
     var picked = form.querySelector('input[name="choice"]:checked');
     if (!picked) { say('Pick one first.'); return; }
     var choice = picked.value;
@@ -264,8 +266,10 @@
       return;
     }
 
+    sending = true;
     btn.disabled = true;
     btn.textContent = 'Submitting...';
+    form.querySelectorAll('input').forEach(function (i) { i.disabled = true; });
     say('');
     // text/plain keeps this a "simple" request (no CORS preflight), which Google Apps Script accepts.
     fetch(ENDPOINT, {
@@ -275,12 +279,16 @@
     })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json().catch(function () { return {}; }); })
       .then(function (data) {
-        if (data && data.ok === false) throw new Error('rejected');
+        // Only a confirmed save counts; the endpoint answers {"ok": true}.
+        if (!data || data.ok !== true) throw new Error('not saved');
         store(false, choice);
         lock(choice);
-        setTimeout(function () { location.href = '../'; }, 1500);
+        say('Vote counted. Thanks for helping us choose.', 'ok');
+        setTimeout(function () { location.href = '../'; }, 4000);
       })
       .catch(function () {
+        sending = false;
+        form.querySelectorAll('input').forEach(function (i) { i.disabled = false; });
         btn.disabled = false;
         btn.textContent = 'Submit';
         say('That didn\'t go through, so your vote wasn\'t saved. Try again in a minute.', 'warn');
