@@ -115,7 +115,8 @@
 @media (max-width: 1100px) { .lineup-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 /* ---------- Field notes (archival photo gallery) ---------- */
-.field-notes .wrap { padding-top: clamp(64px, 8vw, 112px); }
+.field-notes { background: var(--sage, #dfe6da); }
+.field-notes .wrap { padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(56px, 7vw, 96px); }
 .fn-head { margin-bottom: clamp(28px, 3vw, 40px); }
 .fn-head h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; }
 .fn-head h2::before { content: ""; width: 28px; height: 10px; background: var(--sock-red); flex: none; }
