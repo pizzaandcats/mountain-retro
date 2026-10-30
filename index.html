@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#1f2a44">
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="preload" href="assets/fonts/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=4">
+<link rel="stylesheet" href="assets/site.css?v=5">
 <style>
 /* ---------- Hero: the print ad ---------- */
 .ad-band { position: relative; background: var(--cream); overflow-x: clip; }
@@ -55,7 +55,7 @@
 
 /* ---------- Product + specs (navy) ---------- */
 .navy { background: var(--navy); color: var(--cream); }
-.product .wrap { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+.product .wrap { padding-top: clamp(40px, 5vw, 68px); padding-bottom: clamp(40px, 5vw, 68px); }
 .product-detail { background: var(--cream); color: var(--navy); }
 .closeups { background: var(--sage, #dfe6da); color: var(--navy); }
 .features { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
@@ -116,8 +116,8 @@
 
 /* ---------- Field notes (archival photo gallery) ---------- */
 .field-notes { background: var(--sage, #dfe6da); }
-.field-notes .wrap { padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(56px, 7vw, 96px); }
-.fn-head { margin-bottom: clamp(28px, 3vw, 40px); }
+.field-notes .wrap { padding-top: clamp(44px, 5.5vw, 76px); padding-bottom: clamp(36px, 4vw, 56px); }
+.fn-head { margin-bottom: clamp(22px, 2.4vw, 32px); }
 .fn-head h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; }
 .fn-head h2::before { content: ""; width: 28px; height: 10px; background: var(--sock-red); flex: none; }
 .fn-head p { margin: 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 700; letter-spacing: -.01em; }
@@ -128,13 +128,13 @@
 .fn-grid .pill { display: inline-block; margin: 0 0 8px; padding: 2px 8px 1px; border: 1px solid var(--navy); border-radius: 999px; font-size: 9.5px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; line-height: 1.4; }
 .fn-grid .cap { margin: 0; font-size: 17px; line-height: 1.45; }
 .fn-grid .src { margin: 6px 0 0; font-size: 13px; line-height: 1.4; opacity: .75; }
-.fn-follow { margin: clamp(32px, 3.4vw, 44px) 0 0; border-bottom: 1px solid rgba(31, 42, 68, .25); padding-bottom: 18px; font-size: 16px; text-align: center; }
+.fn-follow { margin: clamp(24px, 2.6vw, 32px) 0 0; font-size: 16px; text-align: center; }
 .fn-follow a { font-weight: 500; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .fn-follow a:hover { color: var(--orange); }
 .fn-follow .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- Signup coupon ---------- */
-.signup .wrap { padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
+.signup .wrap { padding-top: clamp(44px, 5.5vw, 76px); padding-bottom: clamp(44px, 5.5vw, 76px); }
 .coupon { position: relative; border: 3px dashed var(--navy); padding: 10px; }
 .coupon-inner { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); background: var(--cream); border: 2px solid var(--navy); }
 .coupon .pitch { padding: clamp(28px, 4vw, 56px); border-right: 2px solid var(--navy); }
