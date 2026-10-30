@@ -206,8 +206,12 @@
   .coupon .pitch { border-right: 0; border-bottom: 2px solid var(--navy); }
 }
 @media (max-width: 560px) {
-  .ad-cta { grid-template-columns: 1fr; }
-  .ad-cta .fine { max-width: none; }
+  /* Hero text on phones: clearer hierarchy, more air, no repeated CTA line */
+  .ad-body { font-size: 17px; line-height: 1.6; }
+  .ad-body .lead { font-size: 20px; line-height: 1.45; }
+  .ad-body p { margin-bottom: 20px; }
+  .ad-cta { grid-template-columns: 1fr; margin-top: 36px; padding-top: 24px; gap: 18px; }
+  .ad-cta .fine { display: none; }
   .btn { width: 100%; }
   .coupon { padding: 6px; }
   .built { grid-template-columns: 1fr; }
