@@ -15,12 +15,12 @@
 <style>
 /* ---------- Hero: the print ad ---------- */
 .ad-band { position: relative; background: var(--cream); overflow-x: clip; }
-.ad-band::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: calc((100% - min(100%, 1440px)) / 2 + min(100%, 1440px) * 6 / 11); background: var(--navy); border-bottom: 1px solid var(--cream); }
+.ad-band::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: calc((100% - min(100%, 1440px)) / 2 + min(100%, 1440px) * 6 / 11); background: var(--navy); }
 .ad { position: relative; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); min-height: 820px; }
 .ad-main { margin: auto 0; padding: clamp(28px, 2.6vw, 36px) 0 4px; }
 .ad-logo-mobile { display: none; }
 
-.ad-photo { border-bottom: 1px solid var(--cream); background: var(--navy); padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 40px) 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; container-type: size; }
+.ad-photo { background: var(--navy); padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 40px) 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; container-type: size; }
 /* the plate keeps the photo's own proportions, so his head and feet are never cropped */
 .ad-photo .plate { width: min(100%, calc((100cqh - 42px - 24px) * 0.7467 + 24px)); }
 .ad-photo .inner { border: 2px solid var(--cream); padding: 10px; }
@@ -57,11 +57,12 @@
 .navy { background: var(--navy); color: var(--cream); }
 .product .wrap { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
 .product-detail { background: var(--cream); color: var(--navy); }
+.closeups { background: var(--orange); color: var(--navy); }
 .features { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
 .features figure { margin: 0; }
 .features img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.features figcaption { display: flex; gap: 10px; align-items: baseline; padding-top: 12px; font-size: 18px; line-height: 1.4; }
-.features figcaption b { flex: none; color: var(--gold-on-navy); font-size: 15px; letter-spacing: .1em; }
+.features figcaption { display: flex; gap: 10px; align-items: baseline; padding-top: 12px; font-size: 18px; line-height: 1.4; font-weight: 500; }
+.features figcaption b { flex: none; color: var(--navy); font-size: 15px; letter-spacing: .1em; }
 .features figcaption span { min-width: 0; overflow-wrap: break-word; }
 .item { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
 .item .num { display: flex; align-items: center; gap: 14px; margin: 0 0 10px; color: var(--orange); }
@@ -205,7 +206,6 @@
   .fn-grid { grid-template-columns: 1fr; gap: 32px; }
   .ad { grid-template-columns: 1fr; min-height: 0; }
   .ad-band::before { display: none; }
-  .ad-photo { border-bottom: 0; }
   .ad-photo { container-type: normal; }
   .ad-photo .plate { width: 100%; }
   .ad-logo-mobile { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px var(--gutter); border-bottom: 2px solid var(--navy); }
@@ -297,7 +297,7 @@
   </section>
   </div>
 
-  <section class="navy product" aria-label="Heritage Trail Sock close-ups">
+  <section class="product closeups" aria-label="Heritage Trail Sock close-ups">
     <div class="wrap">
       <ul class="features">
         <li><figure><img src="assets/img/feature-cuff.jpg" width="600" height="750" loading="lazy" alt="Close-up of a cream ribbed sock cuff with one red stripe."><figcaption><b>A</b> <span>Cream cuff. Single red stripe.</span></figcaption></figure></li>
