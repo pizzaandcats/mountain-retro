@@ -16,7 +16,8 @@
   --gold-on-navy: #f2bf4e;
   --sock-red: #b8372e;      /* accent only */
   --trail-green: #5f8a5a;   /* accent only */
-  --sage: #dfe6da;          /* light secondary background */
+  --sage: #cad9c9;          /* light secondary background */
+  --sage-wash: #cad9c980;   /* sage at 50% over cream, for homepage sections */
   --font-sans: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
   --wrap: 1240px;
   --gutter: clamp(16px, 4vw, 48px);
