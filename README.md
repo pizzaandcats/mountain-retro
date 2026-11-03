@@ -7,7 +7,7 @@ index.html            Landing page (Kit form embedded in the "First on the trail
 thank-you/index.html  Post-signup page with the "What should we make next?" poll
 assets/site.css       Shared styles (brand tokens from the Mountain Retro design system)
 assets/fonts/         Jost (self-hosted, SIL Open Font License, see OFL-LICENSE.txt)
-assets/img/           Approved logo SVGs (unchanged) + web-sized versions of the porch photo
+assets/img/           Approved logo SVGs (unchanged) + web-sized hero, close-up and Field Notes photos
 ```
 
 ## Before going live
